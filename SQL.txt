@@ -1,0 +1,8 @@
+Commands for extracting the data
+
+ALTER TABLE global_data RENAME COLUMN avg_temp to global_avg_temp;
+SELECT city_data.year,city_data.avg_temp, global_data.global_avg_temp 
+FROM global_data, city_data 
+WHERE city_data.city='Delhi'
+AND city_data.year=global_data.year 
+AND city_data.avg_temp IS NOT NULL;
